@@ -73,22 +73,27 @@ Masyarakat umum, terutama penyuka travelling.
 
 ## Use-case Diagram
 
-![Use Case Diagram](/images/use-case.png)
+<img width="262" alt="use-case" src="https://user-images.githubusercontent.com/93606503/223771486-4de56bd2-c913-41fe-92d1-7c0e5c340ffb.png">
+
 
 ## Functional Requirements
 
-![Functional Requirements](/images/functional-req.jpg)                                                                  |
+![functional-req](https://user-images.githubusercontent.com/93606503/223771663-706ce1e2-1b6c-4c28-a46f-163b0191f1e9.jpg)
+
 
 ## Entity Relationship Diagram
 
-![ERD](/images/ERD.jpg)
+![ERD](https://user-images.githubusercontent.com/93606503/223771693-80c95f2a-af87-4711-b729-4303742a5b82.jpg)
+
 
 ## Low-Fidelity Wireframe
 
-![LoFi](/images/lofi.png)
+![lofi](https://user-images.githubusercontent.com/93606503/223771745-16990a1c-ddd8-402a-9c8f-29f47cadca09.png)
+
 
 ## Gantt-Chart
 
-![Gantt Chart 1](/images/gann-chart.png)
+<img width="456" alt="gann-chart" src="https://user-images.githubusercontent.com/93606503/223771787-86ab9fa9-a2be-4930-8841-b467cb5a6306.png">
+
 
 </details>
