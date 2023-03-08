@@ -49,3 +49,46 @@ Untuk mengatasi masalah yang dihadapi oleh para wisatawan terkait ketidakpastian
 <img width="445" alt="image" src="https://user-images.githubusercontent.com/78774670/223053576-dc2f801d-3186-457a-85e2-c76670ef364c.png">
 </details>
 
+<details markdown="1">
+<summary><h2>Modul 2</h2></summary>
+
+## Metodologi SDLC
+
+Kanban
+
+### Alasan SDLC
+
+Tim kami menggunakan metode Kanban karena sifatnya yang fleksibel. Metode ini memungkinkan tim untuk dengan mudah mengganti prioritas atau fokus pekerjaan sesuai dengan kebutuhan. Selain itu, tim kami juga dapat menambahkan fitur baru ke dalam alur kerja jika memungkinkan, dan fitur tersebut dapat dimasukkan ke dalam backlog untuk dikerjakan sesuai prioritas.
+
+Alasan lain penggunaan Kanban adalah untuk memudahkan proses manajemen dan pengerjaan perangkat lunak. Dalam Kanban, terdapat papan yang mudah dilihat oleh anggota tim pengembangan, sehingga memungkinkan mereka untuk melacak kemajuan dan mengetahui tugas-tugas yang sedang dikerjakan pada proyek. Hal ini memudahkan setiap anggota tim untuk memahami apa yang sedang dikerjakan dan apa yang akan dilakukan selanjutnya.
+
+
+## Tujuan Produk
+
+Memberikan rekomendasi tujuan wisata sesuai budget untuk pengguna.
+
+## Pengguna Potensial
+
+Masyarakat umum, terutama penyuka travelling.
+
+## Use-case Diagram
+
+![Use Case Diagram](/images/use-case.png)
+
+## Functional Requirements
+
+![Functional Requirements](/images/functional-req.jpg)                                                                  |
+
+## Entity Relationship Diagram
+
+![ERD](/images/ERD.jpg)
+
+## Low-Fidelity Wireframe
+
+![LoFi](/images/lofi.png)
+
+## Gantt-Chart
+
+![Gantt Chart 1](/images/gann-chart.png)
+
+</details>
