@@ -13,6 +13,9 @@ Universitas Gadjah Mada
 ### Nama Kelompok
 Ongoing Capstone
 
+<details markdown="1">
+<summary><h2>Modul 1</h2></summary>
+
 ### Nama Produk
 DestiMatch
 
@@ -44,3 +47,5 @@ Untuk mengatasi masalah yang dihadapi oleh para wisatawan terkait ketidakpastian
 
 ### Lean Canvas
 <img width="445" alt="image" src="https://user-images.githubusercontent.com/78774670/223053576-dc2f801d-3186-457a-85e2-c76670ef364c.png">
+</details>
+
