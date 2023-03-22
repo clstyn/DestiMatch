@@ -8,8 +8,9 @@ export const destinationReducer = (state, action) => {
             return {
                 destination: action.payload
             }
+        default:
+            return state
     }
-
 }
 
 const DestinationsContextProvider = ({ children }) => {
@@ -18,9 +19,9 @@ const DestinationsContextProvider = ({ children }) => {
     })
 
     return (
-        <FacilityContext.Provider value={{ ...state, dispatch }}>
+        <DestinationContext.Provider value={{ ...state, dispatch }}>
             {children}
-        </FacilityContext.Provider>
+        </DestinationContext.Provider>
     )
 }
 
