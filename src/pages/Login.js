@@ -50,7 +50,7 @@ export const Login = () => {
               <p className="mt-4">
                 Belum memiliki akun?{" "}
                 <span className="text-[#bf002f]">
-                  <a href="#">Daftar</a>
+                  <button>Daftar</button>
                 </span>
               </p>
             </div>
