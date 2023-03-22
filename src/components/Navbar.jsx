@@ -5,7 +5,7 @@ import UserIcon from "../assets/user1.svg"
 
 export const Navbar = () => {
   return (
-    <div className="flex items-center justify-between py-7 font-poppins px-32 py-8">
+    <div className="flex items-center justify-between py-7 font-poppins px-32 py-8 absolute top-0 w-full">
       <button className="font-bold text-[28px]">
         <span className="text-textblack">Desti</span>
         <span className="text-pink1">Match</span>
