@@ -1,5 +1,4 @@
 import React from "react";
-import { Navbar } from "../components/Navbar";
 
 export const Login = () => {
   const handleSubmit = () => {
@@ -8,7 +7,6 @@ export const Login = () => {
 
   return (
     <>
-      <Navbar />
       <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-orange to-pink2 font-poppins text-textwhite">
         <h1 className="text-4xl font-semibold">Selamat Datang!</h1>
         <p className="text-lg">Login untuk melanjutkan</p>
@@ -50,7 +48,7 @@ export const Login = () => {
               <p className="mt-4">
                 Belum memiliki akun?{" "}
                 <span className="text-[#bf002f]">
-                  <a href="">Daftar</a>
+                  <button>Daftar</button>
                 </span>
               </p>
             </div>
