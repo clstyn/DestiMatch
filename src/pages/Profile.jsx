@@ -6,7 +6,7 @@ export const Profile = () => {
   return (
     <>
       <Navbar />
-      <div className="h-screen flex items-center justify-center">
+      <div className="h-screen flex items-center justify-center bg-white2">
         <div className="flex rounded-[20px] bg-gradient-to-br from-orange to-pink2 w-5/6 p-16 gap-[61px] max-w-[1118px]">
           <div className="rounded-[20px] bg-textwhite flex flex-col justify-center items-center gap-[40px] p-[40px] max-h-[485px]">
             <img
