@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const Login = () => {
   const handleSubmit = () => {
@@ -48,7 +49,7 @@ export const Login = () => {
               <p className="mt-4">
                 Belum memiliki akun?{" "}
                 <span className="text-[#bf002f]">
-                  <button>Daftar</button>
+                  <Link to="/register">Daftar</Link>
                 </span>
               </p>
             </div>
