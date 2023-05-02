@@ -1,6 +1,6 @@
 import React from "react";
 import { Navbar } from "../components/Navbar";
-import Hero from "../assets/Saly-22.png";
+import Hero from "../assets/hero.png";
 import SearchIcon from "../assets/search.svg";
 
 

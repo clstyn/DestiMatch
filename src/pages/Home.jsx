@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Navbar } from "../components/Navbar";
 import Dropdown from "../assets/dropdown.png";
 import Filter from "../assets/filter.png";
-import Test from "../assets/dummy/alam.png";
 
 const paketTrips = [
   {
@@ -26,7 +25,11 @@ const paketTrips = [
 ]
 
 export const Home = () => {
-  const [trips, setTrips] = useState(paketTrips);
+  const [trips, setTrips] = useState();
+
+  useEffect(() => {
+    setTrips(paketTrips)
+  }, [])
 
   return (
     <>
