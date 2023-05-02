@@ -24,7 +24,8 @@ module.exports = {
         "blue": "#0D92EB"
       },
       boxShadow: {
-        "card": "3px 4px 10px 4px rgba(0, 0, 0, 0.1)"
+        "card": "3px 4px 10px 4px rgba(0, 0, 0, 0.1)",
+        "home": "6px 6px 20px 2px rgba(0, 0, 0, 0.1);"
       }
     },
   },
