@@ -1,9 +1,30 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useState } from 'react'
+import { useDisplayContext } from '../hooks/useDisplayContext'
+import { useLogin } from '../hooks/useLogin'
 
 export const Login = () => {
-  const handleSubmit = () => {
-    alert("On progres hehe");
+  const [name, setName] = useState("");
+    const [password, setPassword] = useState("");
+    const { notify, isPending, error, setLoading, setError } = useDisplayContext();
+    const { login } = useLogin({ setError, setLoading });
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+
+        const response = await login(name, password);
+        if (!response.isError) {
+            notify.info(response.message);
+            setLoading(true);
+        }
+        else {
+            notify.error(response.message);
+            setLoading(false)
+        }
+    
+
+    setLoading(false)
   };
 
   return (
@@ -49,7 +70,7 @@ export const Login = () => {
               <p className="mt-4">
                 Belum memiliki akun?{" "}
                 <span className="text-[#bf002f]">
-                  <Link to="/register">Daftar</Link>
+                  <button>Daftar</button>
                 </span>
               </p>
             </div>
