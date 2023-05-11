@@ -17,12 +17,8 @@ export const Navbar = () => {
         <button className="font-semibold text-[24px]">Tentang</button>
       </div>
 
-      <button className="h-12 w-12 p-1 mr-2">
-        {/* <FontAwesomeIcon
-          icon={faUser}
-          className="text-textblack"
-        /> */}
-        <img src={UserIcon} alt="" />
+      <button className="h-[50px] w-[50px] p-1 mr-2">
+        <img src={UserIcon} alt="profile" />
       </button>
     </div>
   );
