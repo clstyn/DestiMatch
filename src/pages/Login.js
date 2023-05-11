@@ -1,8 +1,29 @@
 import React from "react";
+import { useState } from 'react'
+import { useLogin } from '../hooks/useLogin'
 
 export const Login = () => {
-  const handleSubmit = () => {
-    alert("On progres hehe");
+  const [name, setName] = useState("");
+    const [password, setPassword] = useState("");
+    const { notify, isPending, error, setLoading, setError } = useDisplayContext();
+    const { login } = useLogin({ setError, setLoading });
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+
+        const response = await login(name, password);
+        if (!response.isError) {
+            notify.info(response.message);
+            setLoading(true);
+        }
+        else {
+            notify.error(response.message);
+            setLoading(false)
+        }
+    
+
+    setLoading(false)
   };
 
   return (
