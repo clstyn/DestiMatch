@@ -11,6 +11,11 @@ export const Recommend = () => {
   const [places, setPlaces] = useState();
   const { destination } = useDestinationContext();
 
+  const generateGoogleMapsLink = (latitude, longitude) => {
+    const url = `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
+    return url;
+  };
+
   const truncate = (text) => {
     const words = text.trim().split(" ");
     if (words.length <= 35) {
@@ -22,7 +27,11 @@ export const Recommend = () => {
 
   useEffect(() => {
     setPlaces(destination);
-  }, [destination, isModalOpen]);
+  }, [destination]);
+
+  useEffect(() => {
+    setPlaces(destination);
+  }, [isModalOpen, idDetail]);
 
   const openDetailModal = (index) => {
     setIsModalOpen(true);
@@ -50,9 +59,9 @@ export const Recommend = () => {
               </span>
             </p>
           </div>
-          <button>
+          {/* <button>
             <img src={Filter} alt="filter" />
-          </button>
+          </button> */}
         </div>
         <ul className="mt-3 grid grid-cols-2">
           {places?.map((place, index) => {
@@ -62,9 +71,18 @@ export const Recommend = () => {
                 key={index}
               >
                 <div className="flex flex-col justify-between gap-2">
-                  <p className="font-semibold text-[28px] text-textblack">
-                    {place.place_name}
-                  </p>
+                  <div className="flex justify-between">
+                    <p className="font-semibold text-[28px] text-textblack">
+                      {place.place_name}
+                    </p>
+                  </div>
+                  <a
+                    target="_blank"
+                    href={generateGoogleMapsLink(place.lat, place.long)}
+                    className="text-pink1 font-semibold text-xl underline"
+                  >
+                    Google Maps
+                  </a>
                   <p className="text-xl text-[#707070] mt-2 text-justify">
                     {truncate(place.description)}
                     <span
