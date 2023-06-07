@@ -53,7 +53,7 @@ export const Home = () => {
         <p className="text-2xl text-[#707070] mt-10">Berikut rekomendasi paket wisata buatmu!</p>
 
         <ul className="mt-3">
-          {trips.map((trip, index) => {
+          {trips?.map((trip, index) => {
               return (
                 <li className="bg-white rounded-[25px] shadow-card mb-10 flex px-10 py-4" key={index}>
                   <div className="w-1/4">
