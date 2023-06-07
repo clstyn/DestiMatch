@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { Navbar } from "../components/Navbar";
 import Hero from "../assets/hero.png";
@@ -95,7 +96,8 @@ export const Home1 = () => {
                   onChange={handleChange}
                 />
               </div>
-              <button
+              <Link
+                to="/recommend"
                 className="bg-pink1 flex items-center justify-center p-3 rounded-r-xl"
                 onClick={() => handleClick()}
               >
@@ -104,7 +106,7 @@ export const Home1 = () => {
                   alt="search"
                   className="w-8 aspect-square"
                 />
-              </button>
+              </Link>
             </div>
           </div>
           <div>
