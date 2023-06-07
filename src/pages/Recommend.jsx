@@ -52,7 +52,7 @@ export const Recommend = () => {
         <div className="flex w-full justify-between items-center pt-[160px]">
           <div className="flex flex-col">
             <p className="text-[28px] font-semibold text-textblack">
-              Berikut ini rekomendasi kami buatmu! &#x1F604;
+              Berikut ini 10 rekomendasi kami buatmu! &#x1F604;
             </p>
             <p className="text-2xl text-textblack">
               Lokasi Kamu{" "}
@@ -83,7 +83,7 @@ export const Recommend = () => {
                     </button>
                   </div>
                   <p className="text-lg text-textblack">
-                    Budget Masuk: {place.price}
+                    Harga Tiket Masuk: {place.price}
                   </p>
                   <a
                     target="_blank"
