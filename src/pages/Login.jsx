@@ -1,20 +1,21 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useState } from 'react'
-import { useDisplayContext } from '../hooks/useDisplayContext'
-import { useLogin } from '../hooks/useLogin'
+import { useState } from "react";
+import { useDisplayContext } from "../hooks/useDisplayContext";
+import { useLogin } from "../hooks/useLogin";
 
 export const Login = () => {
   const navigate = useNavigate();
   const [username, setName] = useState("");
   const [password, setPassword] = useState("");
-  const { notify, isPending, error, setLoading, setError } = useDisplayContext();
+  const { notify, isPending, error, setLoading, setError } =
+    useDisplayContext();
   const { login } = useLogin({ setError, setLoading });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    console.log(username, password)
+    console.log(username, password);
     const response = await login(username, password);
     if (!response.isError) {
       setLoading(false);
@@ -33,7 +34,6 @@ export const Login = () => {
     //   notify.error(response.message);
     //   setLoading(false)
     // }
-
     //   setLoading(false)
   };
 
@@ -77,6 +77,7 @@ export const Login = () => {
             </div>
 
             <div className="flex flex-col items-center mt-8">
+
               <button
                 onClick={handleSubmit}
                 className="rounded-[20px] bg-pink1 px-12 py-3 text-textwhite font-bold mx-auto">
