@@ -6,16 +6,16 @@ import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   return (
-    <div className="flex items-center justify-between font-poppins px-32 pt-4 absolute top-0 w-full">
+    <div className="flex items-center justify-between font-poppins px-32 pt-4 absolute top-0 w-full mx-10 ">
       <Link className="font-bold text-2xl" to='/'>
         <span className="text-textblack">Desti</span>
         <span className="text-pink1">Match</span>
       </Link>
 
       <div className="flex gap-[52px]">
-        <Link className="font-semibold text-lg" to ='/'>Beranda</Link>
-        <button className="font-semibold text-lg">Riwayat</button>
-        <Link className="font-semibold text-lg" to='/'>Tentang</Link>
+        <Link className="font-medium text-lg" to ='/'>Beranda</Link>
+        <button className="font-medium text-lg">Riwayat</button>
+        <Link className="font-medium text-lg" to='/'>Tentang</Link>
       </div>
 
       <Link className="h-8 w-8 pt mr-2" to='/profile'>

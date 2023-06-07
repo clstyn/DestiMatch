@@ -31,6 +31,7 @@ export const Home1 = () => {
                     <button className="bg-pink1 flex items-center justify-center p-3 rounded-r-xl">
                         <img src={SearchIcon} alt="search"  />
                     </button>
+                    
                 </div>
             </div>
             <div>
