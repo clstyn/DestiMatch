@@ -6,6 +6,7 @@ import { Home } from "./pages/Home";
 import { Home1 } from "./pages/Home1";
 import { Profile } from "./pages/Profile";
 import { Recommend } from "./pages/Recommend";
+import { About } from "./pages/About";
 import DestinationsContextProvider from "./context/destinationContext";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/recommend" element={<Recommend />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </DestinationsContextProvider>
     </Router>

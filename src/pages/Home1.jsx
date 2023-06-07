@@ -52,7 +52,7 @@ export const Home1 = () => {
             </p>
             <div className="rounded-xl bg-white shadow-home flex justify-between h-20">
               <div className="px-4 py-4 h-full ml-4">
-                <label className="font-poppins text-xs font-semibold mb-4 w-1/2">
+                <label className="font-poppins text-base font-semibold mb-4 w-1/2">
                   Tipe Wisata Pilihanmu
                 </label>
                 <select
@@ -84,14 +84,14 @@ export const Home1 = () => {
               <div className="py-2">
                 <hr vertical="true" className="bg-pink1 w-[4px] h-full" />
               </div>
-              <div className="px-2 py-4 h-full">
-                <label className="font-poppins text-xs font-semibold mb-4">
+              <div className="px-4 py-4 h-full">
+                <label className="font-poppins text-base font-semibold mb-4">
                   Kota Kamu
                 </label>
                 <input
                   name="city"
                   id="city"
-                  className="text-lg px-3 font-poppins font-medium items-center w-full"
+                  className="text-lg font-poppins font-medium items-center w-full"
                   placeholder="Jakarta"
                   onChange={handleChange}
                 />
