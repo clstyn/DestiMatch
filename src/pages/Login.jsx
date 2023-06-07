@@ -9,23 +9,23 @@ export const Login = () => {
   //   const { notify, isPending, error, setLoading, setError } = useDisplayContext();
   //   const { login } = useLogin({ setError, setLoading });
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setLoading(true);
+  //   const handleSubmit = async (e) => {
+  //       e.preventDefault();
+  //       setLoading(true);
 
-        const response = await login(name, password);
-        if (!response.isError) {
-            notify.info(response.message);
-            setLoading(true);
-        }
-        else {
-            notify.error(response.message);
-            setLoading(false)
-        }
+  //       const response = await login(name, password);
+  //       if (!response.isError) {
+  //           notify.info(response.message);
+  //           setLoading(true);
+  //       }
+  //       else {
+  //           notify.error(response.message);
+  //           setLoading(false)
+  //       }
     
 
-    setLoading(false)
-  };
+  //   setLoading(false)
+  // };
 
   return (
     <>
@@ -33,7 +33,7 @@ export const Login = () => {
         <h1 className="text-4xl font-semibold">Selamat Datang!</h1>
         <p className="text-lg">Login untuk melanjutkan</p>
         <div className="bg-textwhite rounded-[20px] text-textblack justify-center px-9 py-6 mt-6 w-[552px]">
-          <form action="" onSubmit={handleSubmit} className="">
+          <form action="" /*onSubmit={handleSubmit}*/ className="">
             <div className="flex flex-col items-start w-7/8 mt-6">
               <p className="text-[22px] font-semibold ">Email atau Username</p>
               <input

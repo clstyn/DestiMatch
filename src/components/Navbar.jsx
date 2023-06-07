@@ -17,7 +17,7 @@ export const Navbar = () => {
           Beranda
         </Link>
         <button className="font-medium text-lg">Riwayat</button>
-        <Link className="font-medium text-lg" to="/">
+        <Link className="font-medium text-lg" to="/about">
           Tentang
         </Link>
       </div>
