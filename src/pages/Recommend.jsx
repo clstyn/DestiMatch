@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark } from "@fortawesome/free-regular-svg-icons";
 import { Navbar } from "../components/Navbar";
-import Dropdown from "../assets/dropdown.png";
-import Filter from "../assets/filter.png";
 import { useDestinationContext } from "../hooks/useDestinationContext";
 import DetailDest from "./DetailDestination";
 
@@ -30,10 +28,6 @@ export const Recommend = () => {
   useEffect(() => {
     setPlaces(destination);
   }, [destination]);
-
-  useEffect(() => {
-    setPlaces(destination);
-  }, [isModalOpen, idDetail]);
 
   const openDetailModal = (index) => {
     setIsModalOpen(true);
@@ -86,6 +80,7 @@ export const Recommend = () => {
                     Harga Tiket Masuk: {place.price}
                   </p>
                   <a
+                    rel="noreferrer"
                     target="_blank"
                     href={generateGoogleMapsLink(place.lat, place.long)}
                     className="text-pink1 font-semibold text-xl underline"

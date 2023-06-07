@@ -25,6 +25,7 @@ const DetailDest = ({ place, closeModal }) => {
       </div>
       <a
         target="_blank"
+        rel="noreferrer"
         href={generateGoogleMapsLink(lat, long)}
         className="text-pink1 font-semibold text-xl underline"
       >
