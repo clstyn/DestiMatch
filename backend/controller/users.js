@@ -8,7 +8,7 @@ exports.signUp = async (req, res) => {
     if (!req.body) {
         res.status(404).json({ message: 'Data cannot be empty' })
     }
-    const { name, username, password } = req.body
+    const { name, username, password, email } = req.body
 
     const salt = await bcrypt.genSalt();
     const hashPassword = await bcrypt.hash(password, salt)
@@ -17,6 +17,7 @@ exports.signUp = async (req, res) => {
             name: name,
             username: username,
             password: hashPassword,
+            email: email,
             role: "CLIENT"
         });
         res.status(200).json({ message: 'New user added' })
@@ -41,6 +42,7 @@ exports.signIn = async (req, res) => {
             const name =  userAuth[0].name
             const username =  userAuth[0].username
             const role =  userAuth[0].role
+            const email = userAuth[0].email
             const token = jwt.sign({ id, username }, "ty8943bv4tv9238by43tv2yb89324tv9by8ry289b", {
                 expiresIn: '20s'
             })
@@ -65,7 +67,8 @@ exports.signIn = async (req, res) => {
                     username,
                     role,
                     token,
-                    id
+                    id,
+                    email
                 }
             })
         }

@@ -13,6 +13,9 @@ const users = db.define('users', {
     username: {
         type: DataTypes.STRING
     },
+    email: {
+        type: DataTypes.STRING
+    },
     location: {
         type: DataTypes.STRING
     },
