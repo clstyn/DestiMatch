@@ -1,12 +1,12 @@
 import { useContext } from "react";
 import { DestinationContext } from "../context/destinationContext";
 
-export const useFacilityContext = () => {
-    const context = useContext(DestinationContext);
+export const useDestinationContext = () => {
+  const context = useContext(DestinationContext);
 
-    if (!context) {
-        throw Error('Something bad occured on useDestinationContext')
-    };
+  if (!context) {
+    throw Error("Something bad occured on useDestinationContext");
+  }
 
-    return context;
-}
+  return context;
+};

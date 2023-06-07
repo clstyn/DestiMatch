@@ -1,13 +1,13 @@
 import React from "react";
 import { useState } from 'react'
-import { useDisplayContext } from '../hooks/useDisplayContext'
+// import { useDisplayContext } from '../hooks/useDisplayContext'
 import { useLogin } from '../hooks/useLogin'
 
 export const Login = () => {
-  const [name, setName] = useState("");
-    const [password, setPassword] = useState("");
-    const { notify, isPending, error, setLoading, setError } = useDisplayContext();
-    const { login } = useLogin({ setError, setLoading });
+  // const [name, setName] = useState("");
+  //   const [password, setPassword] = useState("");
+  //   const { notify, isPending, error, setLoading, setError } = useDisplayContext();
+  //   const { login } = useLogin({ setError, setLoading });
 
     const handleSubmit = async (e) => {
         e.preventDefault();
