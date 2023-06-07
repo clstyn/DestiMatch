@@ -3,8 +3,8 @@ const bodyParser = require('body-parser');
 const dotenv = require('dotenv')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
-const db = require('./server/database/client');
-const userRouter = require('./server/router/user');
+const db = require('./database/client')
+const userRouter = require('./routes/loginrouter');
 
 dotenv.config({ path:"config.env"})
 const app = express();

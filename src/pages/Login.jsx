@@ -1,28 +1,32 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useState } from 'react'
-// import { useDisplayContext } from '../hooks/useDisplayContext'
+import { useDisplayContext } from '../hooks/useDisplayContext'
 import { useLogin } from '../hooks/useLogin'
 
 export const Login = () => {
-  // const [name, setName] = useState("");
-  //   const [password, setPassword] = useState("");
-  //   const { notify, isPending, error, setLoading, setError } = useDisplayContext();
-  //   const { login } = useLogin({ setError, setLoading });
+  const navigate = useNavigate();
+  const [username, setName] = useState("");
+  const [password, setPassword] = useState("");
+  const { notify, isPending, error, setLoading, setError } = useDisplayContext();
+  const { login } = useLogin({ setError, setLoading });
 
-  //   const handleSubmit = async (e) => {
-  //       e.preventDefault();
-  //       setLoading(true);
-
-  //       const response = await login(name, password);
-  //       if (!response.isError) {
-  //           notify.info(response.message);
-  //           setLoading(true);
-  //       }
-  //       else {
-  //           notify.error(response.message);
-  //           setLoading(false)
-  //       }
-    
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    console.log(username, password)
+    const response = await login(username, password);
+    if (!response.isError) {
+      notify.info(response.message);
+      setLoading(true);
+      setTimeout(() => {
+        navigate("/")
+      },2000)
+    }
+    else {
+      notify.error(response.message);
+      setLoading(false)
+    }
 
   //   setLoading(false)
   // };
@@ -40,8 +44,9 @@ export const Login = () => {
                 className="w-full text-xl
                                 text-slate-500 rounded-[20px]
                                 focus:outline-none focus:ring-0 mt-2 p-6"
-                type="email"
                 name="email"
+                value={username}
+                onChange={(e)=>{setName(e.target.value)}}
                 placeholder="Masukkan email atau username"
                 required
               />
@@ -60,12 +65,15 @@ export const Login = () => {
                 name="password"
                 placeholder="Masukkan password"
                 required
+								value={password}
+								onChange={(e)=>{setPassword(e.target.value)}}
               />
             </div>
 
             <div className="flex flex-col items-center mt-8">
-              <button className="rounded-[20px] bg-pink1 px-12 py-3 text-textwhite font-bold mx-auto">
-                LOGIN
+              <button
+                  className="rounded-[20px] bg-pink1 px-12 py-3 text-textwhite font-bold mx-auto">
+                  LOGIN
               </button>
               <p className="mt-4">
                 Belum memiliki akun?{" "}

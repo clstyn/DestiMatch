@@ -3,32 +3,13 @@ import { Navbar } from "../components/Navbar";
 import Dropdown from "../assets/dropdown.png";
 import Filter from "../assets/filter.png";
 import { useDestinationContext } from "../hooks/useDestinationContext";
-
-const paketTrips = [
-  {
-    id: 1,
-    title: "Paket Wisata Alam",
-    desc: "Nikmati keindahan alam dengan Paket Wisata Alam kami! Temukan air terjun, danau, kebun teh, dan pemandangan pegunungan menakjubkan",
-    imgUrl: "alam.png",
-  },
-  {
-    id: 2,
-    title: "Paket Wisata Kota",
-    desc: "Temukan keindahan dan keunikan kota dengan Paket Wisata Kota kami. Nikmati kelezatan kuliner tradisional, belanja di outlet terkenal, dan menjelajahi keindahan lanskap kota!",
-    imgUrl: "keluarga.png",
-  },
-  {
-    id: 3,
-    title: "Paket Wisata Keluarga",
-    desc: "Paket Wisata Keluarga menawarkan berbagai pilihan aktivitas seru, seperti mengunjungi Tangkuban Perahu, dan Trans Studio Bandung.",
-    imgUrl: "kota.png",
-  },
-];
+import DetailDest from "./DetailDestination";
 
 export const Recommend = () => {
-  const [trips, setTrips] = useState();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [idDetail, setIdDetail] = useState(0);
   const [places, setPlaces] = useState();
-  const { dispatch, destination } = useDestinationContext();
+  const { destination } = useDestinationContext();
 
   const truncate = (text) => {
     const words = text.trim().split(" ");
@@ -41,8 +22,17 @@ export const Recommend = () => {
 
   useEffect(() => {
     setPlaces(destination);
-    console.log(destination);
-  }, [destination]);
+  }, [destination, isModalOpen]);
+
+  const openDetailModal = (index) => {
+    setIsModalOpen(true);
+    setIdDetail(index);
+  };
+
+  const closeDetailModal = () => {
+    setIsModalOpen(false);
+    setIdDetail(null);
+  };
 
   return (
     <>
@@ -77,7 +67,10 @@ export const Recommend = () => {
                   </p>
                   <p className="text-xl text-[#707070] mt-2 text-justify">
                     {truncate(place.description)}
-                    <span className="font-semibold text-pink1 ml-2">
+                    <span
+                      className="font-semibold text-pink1 ml-2"
+                      onClick={() => openDetailModal(index)}
+                    >
                       Baca selengkapnya
                     </span>
                   </p>
@@ -87,6 +80,10 @@ export const Recommend = () => {
           })}
         </ul>
       </div>
+
+      {isModalOpen && (
+        <DetailDest place={places[idDetail]} closeModal={closeDetailModal} />
+      )}
     </>
   );
 };

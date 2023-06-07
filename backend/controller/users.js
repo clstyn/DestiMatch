@@ -41,10 +41,10 @@ exports.signIn = async (req, res) => {
             const name =  userAuth[0].name
             const username =  userAuth[0].username
             const role =  userAuth[0].role
-            const token = jwt.sign({ id, username }, process.env.ACCESS_TOKEN_SECRET, {
+            const token = jwt.sign({ id, username }, "ty8943bv4tv9238by43tv2yb89324tv9by8ry289b", {
                 expiresIn: '20s'
             })
-            const refreshToken = jwt.sign({ id, username }, process.env.REFRESH_TOKEN_SECRET, {
+            const refreshToken = jwt.sign({ id, username }, "3940tb8u32btu8390t8bu2908u2bn89u2buy", {
                 expiresIn: '1d'
             })
             await user.update({ refresh_token: refreshToken }, {
