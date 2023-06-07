@@ -20,7 +20,28 @@ export const Profile = () => {
               </p>
             </button>
           </div>
+
           <div className="rounded-[20px] bg-textwhite flex flex-col justify-center items-center w-2/3 px-10 gap-5">
+            <div className="flex flex-col text-2xl items-start w-full">
+              <p className="text-[#6B6B6B]">Nama</p>
+              <p>Ariq Aryasuta</p>
+              
+            </div>
+            <div className="flex flex-col text-2xl items-start w-full">
+              <p className="text-[#6B6B6B]">Username</p>
+              <p>Mas Ariq</p>
+              
+            </div>
+            <div className="flex flex-col text-2xl items-start w-full">
+              <p className="text-[#6B6B6B]">Email</p>
+              <p>ariq.aryasuta@gmail.com</p>
+              
+            </div>
+            
+          </div>
+
+          {/* nitip komen */}
+          {/* <div className="rounded-[20px] bg-textwhite flex flex-col justify-center items-center w-2/3 px-10 gap-5">
             <div className="flex flex-col text-xl items-start w-full">
               <p className="text-[#6B6B6B]">Nama</p>
               <input
@@ -69,7 +90,8 @@ export const Profile = () => {
                 required
               />
             </div>
-          </div>
+          </div> */}
+
         </div>
       </div>
     </>
