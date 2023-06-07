@@ -10,20 +10,21 @@ const users = db.define('users', {
     password: {
         type: DataTypes.STRING
     },
-    email: {
+    username: {
         type: DataTypes.STRING
     },
     location: {
         type: DataTypes.STRING
     },
     role: {
-        type: DataTypes.ENUM('Admin', 'user')
+        type: DataTypes.STRING
     },
     refresh_token: {
         type: DataTypes.TEXT
     }
 }, {
-    freezeTableName: true
+    freezeTableName: true,
+    timestamps: false
 })
 
 module.exports = users;
