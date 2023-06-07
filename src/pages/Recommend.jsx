@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBookmark } from "@fortawesome/free-regular-svg-icons";
 import { Navbar } from "../components/Navbar";
 import Dropdown from "../assets/dropdown.png";
 import Filter from "../assets/filter.png";
@@ -71,11 +73,18 @@ export const Recommend = () => {
                 key={index}
               >
                 <div className="flex flex-col justify-between gap-2">
-                  <div className="flex justify-between">
+                  <div className="flex justify-between items-center">
                     <p className="font-semibold text-[28px] text-textblack">
                       {place.place_name}
                     </p>
+
+                    <button>
+                      <FontAwesomeIcon icon={faBookmark} size="xl" />
+                    </button>
                   </div>
+                  <p className="text-lg text-textblack">
+                    Budget Masuk: {place.price}
+                  </p>
                   <a
                     target="_blank"
                     href={generateGoogleMapsLink(place.lat, place.long)}
