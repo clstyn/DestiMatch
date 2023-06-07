@@ -6,10 +6,19 @@ import { Home } from "./pages/Home";
 import { Home1 } from "./pages/Home1";
 import { Profile } from "./pages/Profile";
 import { Recommend } from "./pages/Recommend";
-import { About } from "./pages/About";
 import DestinationsContextProvider from "./context/destinationContext";
+import { useAuthContext } from './hooks/auth/useAuthContext.js'
 
 function App() {
+  const { user, dispatch} = useAuthContext();
+  const [isLoading, setIsLoading] = useState();
+  useEffect(()=>{
+    const logged = localStorage.getItem('user');
+    dispatch({type:'LOGIN', payload:logged});
+    setIsLoading(false)
+  }, [])
+  console.log(user)
+  
   return (
     <Router>
       <DestinationsContextProvider>
@@ -20,7 +29,6 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/recommend" element={<Recommend />} />
-          <Route path="/about" element={<About />} />
         </Routes>
       </DestinationsContextProvider>
     </Router>
