@@ -25,20 +25,17 @@ export const Navbar = () => {
       <div className="h-8 w-8 pt mr-2 dropdown">
         <img src={UserIcon} alt="profile" />
 
-        <ul class="dropdown-menu absolute top-10 hidden pt-1 text-base">
-          <li class="">
+        <ul className="dropdown-menu absolute top-10 hidden pt-1 text-base">
+          <li className="">
             <Link
-              class=" bg-white hover:text-orange py-2 px-4 block whitespace-no-wrap"
+              className=" bg-white hover:text-orange py-2 px-4 block whitespace-no-wrap"
               to="/profile"
             >
               Profil
             </Link>
           </li>
-          <li class="">
-            <p
-              
-              class="text-red-500 bg-white hover:text-orange py-2 px-4 block whitespace-no-wrap"
-            >
+          <li className="">
+            <p className="text-red-500 bg-white hover:text-orange py-2 px-4 block whitespace-no-wrap">
               Logout
             </p>
           </li>
