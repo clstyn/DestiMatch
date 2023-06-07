@@ -5,15 +5,17 @@ import { useAuthContext } from "./useAuthContext";
 export const useLogin = ({ setError, setLoading }) => {
     const { dispatch } = useAuthContext();
     const [isPending, setIsPending] = useState(null);
-    const url = 'http://localhost:3100/api/users/login';
+    const url = 'http://localhost:3100/api/users/signin';
 
     const login = async (name, password) => {
         setIsPending(true);
 
+        console.log(JSON.stringify({ name, password }))
+
         const response = await fetch(url, {
             method: 'POST',
             headers: { 'Content-type': 'application/json' },
-            body: JSON.stringify({ name, password })
+            body: JSON.stringify({ username: name, password })
         });
 
         const user = await response.json();
