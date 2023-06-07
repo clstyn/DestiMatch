@@ -2,9 +2,14 @@ import React, { useState } from "react";
 import { Navbar } from "../components/Navbar";
 import Modal from "../components/Modal";
 import ProfilePic from "../assets/pp-dummy.jpg";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 export const Profile = () => {
   const [showModal, setShowModal] = useState(false);
+  const {user} = useAuthContext();
+  const [nama, setNama] = useState(user.name)
+  const [username, setUsername] = useState(user.username)
+  const [email, setEmail] = useState(user.email)
   return (
     <>
       <Navbar />
@@ -85,15 +90,15 @@ export const Profile = () => {
           <div className="rounded-[20px] bg-textwhite flex flex-col justify-center items-center w-2/3 px-10 gap-5">
             <div className="flex flex-col text-2xl items-start w-full">
               <p className="text-[#6B6B6B]">Nama</p>
-              <p>Ariq Aryasuta</p>
+              <p>{nama}</p>
             </div>
             <div className="flex flex-col text-2xl items-start w-full">
               <p className="text-[#6B6B6B]">Username</p>
-              <p>Mas Ariq</p>
+              <p>{username}</p>
             </div>
             <div className="flex flex-col text-2xl items-start w-full">
               <p className="text-[#6B6B6B]">Email</p>
-              <p>ariq.aryasuta@gmail.com</p>
+              <p>{email}</p>
             </div>
           </div>
 

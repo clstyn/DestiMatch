@@ -3,8 +3,10 @@ import React from "react";
 // import { faUser } from "@fortawesome/free-solid-svg-icons";
 import UserIcon from "../assets/user1.svg";
 import { Link } from "react-router-dom";
+import { useLogout } from "../hooks/useLogout";
 
 export const Navbar = () => {
+  const { logout } = useLogout()
   return (
     <div className="flex items-center justify-between font-poppins px-32 pt-4 absolute top-0 w-full mx-10 ">
       <Link className="font-bold text-2xl" to="/">
@@ -35,7 +37,8 @@ export const Navbar = () => {
             </Link>
           </li>
           <li className="">
-            <p className="text-red-500 bg-white hover:text-orange py-2 px-4 block whitespace-no-wrap">
+            <p onClick={logout}
+              className="text-red-500 bg-white hover:text-orange py-2 px-4 block whitespace-no-wrap">
               Logout
             </p>
           </li>
