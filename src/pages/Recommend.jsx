@@ -90,7 +90,7 @@ export const Recommend = () => {
           <div id="mapid" className="w-full h-[400px]" ref={mapRef}></div>
         ) : null}
 
-        <ul className="mt-3 grid grid-cols-2">
+        <ul className="mt-3 grid xl:grid-cols-2">
           {places?.map((place, index) => {
             return (
               <li
