@@ -79,26 +79,43 @@ export const Recommend = () => {
     setIdDetail(null);
   };
 
-  const saveBookmark = async () => {
-    try {
-      const response = await fetch("localhost:3100/api/bookmarks", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ placeToSave }),
-      });
-      if (response.ok) {
-        const bookmark = await response.json();
-        console.log(bookmark);
-        setPlaceToSave(null);
-      } else {
-        console.error("Failed to save bookmark");
+  const user_id = JSON.parse(localStorage.getItem("user")).id;
+
+  console.log();
+
+  useEffect(() => {
+    const saveBookmark = async () => {
+      try {
+        const response = await fetch("http://localhost:3100/api/bookmarks", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            category: placeToSave.category,
+            city: placeToSave.city,
+            description: placeToSave.description,
+            id: Math.floor(Math.random() * 10000) + 1000,
+            lat: placeToSave.lat,
+            long: placeToSave.long,
+            place_name: placeToSave.place_name,
+            price: placeToSave.price,
+            user_id: user_id,
+          }),
+        });
+        if (response.ok) {
+          const bookmark = await response.json();
+          console.log(bookmark);
+          setPlaceToSave(null);
+        } else {
+          console.error("Failed to save bookmark");
+        }
+      } catch (error) {
+        console.error(error);
       }
-    } catch (error) {
-      console.error(error);
-    }
-  };
+    };
+    saveBookmark();
+  }, [placeToSave]);
 
   return (
     <>
