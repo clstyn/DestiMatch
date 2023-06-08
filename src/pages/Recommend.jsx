@@ -41,16 +41,27 @@ export const Recommend = () => {
     const initMap = () => {
       if (mapRef.current) {
         // Initialize the map
-        const map = L.map(mapRef.current).setView([0, 0], 10); // Set the initial center and zoom level
+        const map = L.map(mapRef.current).setView(
+          [places[0].lat, places[0].long],
+          12
+        );
         console.log(map);
         // Add a tile layer (e.g., OpenStreetMap)
         L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
           attribution: "Map data &copy; OpenStreetMap contributors",
         }).addTo(map);
 
+        const customIcon = L.icon({
+          iconUrl: markerIcon,
+          iconSize: [32, 64],
+          popupAnchor: [0, -20],
+        });
+
         // Add markers for each place
         places?.forEach((place) => {
-          const marker = L.marker([place.lat, place.long]).addTo(map);
+          const marker = L.marker([place.lat, place.long], {
+            icon: customIcon,
+          }).addTo(map);
           marker.bindPopup(place.place_name); // Display the place name when marker is clicked
         });
       }
