@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Navbar } from "../components/Navbar";
 import Modal from "../components/Modal";
 import ProfilePic from "../assets/pp-dummy.jpg";
@@ -6,67 +6,80 @@ import { useAuthContext } from "../hooks/useAuthContext";
 
 export const Profile = () => {
   const [showModal, setShowModal] = useState(false);
-  const {user} = useAuthContext();
-  const [nama, setNama] = useState(user.name)
-  const [username, setUsername] = useState(user.username)
-  const [email, setEmail] = useState(user.email)
+  const { user } = useAuthContext();
+  const [nama, setNama] = useState();
+  const [username, setUsername] = useState();
+  const [email, setEmail] = useState();
+  useEffect(() => {
+    console.log(user);
+  }, []);
+
+  useEffect(() => {
+    setNama(user?.name);
+    setUsername(user?.username);
+    setEmail(user?.email);
+  }, [user]);
+
   return (
     <>
       <Navbar />
       <Modal isVisible={showModal} onClose={() => setShowModal(false)}>
         <div className="rounded-[20px] bg-white bg-textwhite flex flex-col justify-center items-center  px-5 py-5 gap-5">
-            <div className="flex flex-col text-xl items-start w-full">
-              <p className="text-[#6B6B6B]">Nama</p>
-              <input
-                className=" w-full
+          <div className="flex flex-col text-xl items-start w-full">
+            <p className="text-[#6B6B6B]">Nama</p>
+            <input
+              className=" w-full
                   text-slate-500 rounded-[10px]
                   focus:outline-none focus:ring-0 mt-1 py-2 pl-5"
-                type="name"
-                name="name"
-                placeholder="Masukkan Nama"
-                required
-              />
-            </div>
-            <div className="flex flex-col text-xl items-start w-full">
-              <p className="text-[#6B6B6B]">Username</p>
-              <input
-                className=" w-full
-                  text-slate-500 rounded-[10px]
-                  focus:outline-none focus:ring-0 mt-1 py-2 pl-5"
-                type="text"
-                name="uname"
-                placeholder="Masukkan Username"
-                required
-              />
-            </div>
-            <div className="flex flex-col text-xl items-start w-full">
-              <p className="text-[#6B6B6B]">Email</p>
-              <input
-                className=" w-full
-                  text-slate-500 rounded-[10px]
-                  focus:outline-none focus:ring-0 mt-1 py-2 pl-5"
-                type="email"
-                name="email"
-                placeholder="Masukkan Username"
-                required
-              />
-            </div>
-            <div className="flex flex-col text-xl items-start w-full">
-              <p className="text-[#6B6B6B]">Password</p>
-              <input
-                className=" w-full
-                  text-slate-500 rounded-[10px]
-                  focus:outline-none focus:ring-0 mt-1 py-2 pl-5"
-                type="password"
-                name="password"
-                placeholder="Masukkan Password"
-                required
-              />
-            </div>
-            <button>
-              <p className="bg-pink1 rounded-[15px] py-[14px] px-[21.85px] font-poppins font-semibold text-textwhite text-[18px]"> Simpan </p>
-            </button>
+              type="name"
+              name="name"
+              value={nama}
+              required
+            />
           </div>
+          <div className="flex flex-col text-xl items-start w-full">
+            <p className="text-[#6B6B6B]">Username</p>
+            <input
+              className=" w-full
+                  text-slate-500 rounded-[10px]
+                  focus:outline-none focus:ring-0 mt-1 py-2 pl-5"
+              type="text"
+              name="uname"
+              value={username}
+              required
+            />
+          </div>
+          <div className="flex flex-col text-xl items-start w-full">
+            <p className="text-[#6B6B6B]">Email</p>
+            <input
+              className=" w-full
+                  text-slate-500 rounded-[10px]
+                  focus:outline-none focus:ring-0 mt-1 py-2 pl-5"
+              type="email"
+              name="email"
+              value={email}
+              required
+            />
+          </div>
+          {/* <div className="flex flex-col text-xl items-start w-full">
+            <p className="text-[#6B6B6B]">Password</p>
+            <input
+              className=" w-full
+                  text-slate-500 rounded-[10px]
+                  focus:outline-none focus:ring-0 mt-1 py-2 pl-5"
+              type="password"
+              name="password"
+              placeholder="Masukkan Password"
+              required
+            />
+          </div> */}
+          <button>
+            <p className="bg-pink1 rounded-[15px] py-[14px] px-[21.85px] font-poppins font-semibold text-textwhite text-[18px]">
+              {" "}
+              Simpan{" "}
+            </p>
+          </button>
+        </div>
       </Modal>
 
       <div className="h-screen flex items-center justify-center bg-white2">
