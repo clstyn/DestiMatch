@@ -17,19 +17,24 @@ export const Login = () => {
     console.log(username, password);
     const response = await login(username, password);
     if (!response.isError) {
-      notify.info(response.message);
-      setLoading(true);
-      setTimeout(() => {
-        navigate("/");
-      }, 2000);
-    } else {
-      notify.error(response.message);
       setLoading(false);
     }
+    else {
+      setLoading(false);
+    }
+    // if (!response.isError) {
+    //   notify.info(response.message);
+    //   setLoading(true);
+    //   setTimeout(() => {
+    //     navigate("/")
+    //   },2000)
+    // }
+    // else {
+    //   notify.error(response.message);
+    //   setLoading(false)
+    // }
+    //   setLoading(false)
   };
-
-  //   setLoading(false)
-  // };
 
   return (
     <>
@@ -46,9 +51,7 @@ export const Login = () => {
                                 focus:outline-none focus:ring-0 mt-2 p-6"
                 name="email"
                 value={username}
-                onChange={(e) => {
-                  setName(e.target.value);
-                }}
+                onChange={(e) => { setName(e.target.value) }}
                 placeholder="Masukkan email atau username"
                 required
               />
@@ -68,14 +71,15 @@ export const Login = () => {
                 placeholder="Masukkan password"
                 required
                 value={password}
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                }}
+                onChange={(e) => { setPassword(e.target.value) }}
               />
             </div>
 
             <div className="flex flex-col items-center mt-8">
-              <button className="rounded-[20px] bg-pink1 px-12 py-3 text-textwhite font-bold mx-auto">
+
+              <button
+                onClick={handleSubmit}
+                className="rounded-[20px] bg-pink1 px-12 py-3 text-textwhite font-bold mx-auto">
                 LOGIN
               </button>
               <p className="mt-4">
