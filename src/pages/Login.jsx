@@ -18,6 +18,9 @@ export const Login = () => {
     const response = await login(username, password);
     if (!response.isError) {
       setLoading(false);
+      setTimeout(() => {
+        navigate("/about");
+      }, 2000);
     } else {
       setLoading(false);
     }

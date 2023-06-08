@@ -6,15 +6,15 @@ export const useLogin = ({ setError, setLoading }) => {
   const [isPending, setIsPending] = useState(null);
   const url = "http://localhost:3100/api/users/signin";
 
-  const login = async (name, password) => {
+  const login = async (username, password) => {
     setIsPending(true);
 
-    console.log(JSON.stringify({ name, password }));
+    console.log(JSON.stringify({ username, password }));
 
     const response = await fetch(url, {
       method: "POST",
       headers: { "Content-type": "application/json" },
-      body: JSON.stringify({ username: name, password }),
+      body: JSON.stringify({ username, password }),
     });
 
     const user = await response.json();

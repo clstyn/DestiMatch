@@ -14,6 +14,7 @@ import markerShadow from "leaflet/dist/images/marker-shadow.png";
 export const Recommend = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [idDetail, setIdDetail] = useState(0);
+  const [placeToSave, setPlaceToSave] = useState();
   const [places, setPlaces] = useState();
   const { destination } = useDestinationContext();
   const mapRef = useRef(null);
@@ -67,6 +68,27 @@ export const Recommend = () => {
     setIdDetail(null);
   };
 
+  const saveBookmark = async () => {
+    try {
+      const response = await fetch("localhost:3100/api/bookmarks", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ placeToSave }),
+      });
+      if (response.ok) {
+        const bookmark = await response.json();
+        console.log(bookmark);
+        setPlaceToSave(null);
+      } else {
+        console.error("Failed to save bookmark");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <>
       <Navbar />
@@ -103,7 +125,7 @@ export const Recommend = () => {
                       {place.place_name}
                     </p>
 
-                    <button>
+                    <button onClick={() => setPlaceToSave(place)}>
                       <FontAwesomeIcon icon={faBookmark} size="xl" />
                     </button>
                   </div>
