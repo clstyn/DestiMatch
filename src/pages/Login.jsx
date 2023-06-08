@@ -8,8 +8,7 @@ export const Login = () => {
   const navigate = useNavigate();
   const [username, setName] = useState("");
   const [password, setPassword] = useState("");
-  const { notify, isPending, error, setLoading, setError } =
-    useDisplayContext();
+  const { notify, setLoading, setError } = useDisplayContext();
   const { login } = useLogin({ setError, setLoading });
 
   const handleSubmit = async (e) => {

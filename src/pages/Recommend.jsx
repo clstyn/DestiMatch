@@ -1,15 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
+import L from "leaflet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark } from "@fortawesome/free-regular-svg-icons";
 import { Navbar } from "../components/Navbar";
 import { useDestinationContext } from "../hooks/useDestinationContext";
 import DetailDest from "./DetailDestination";
 
+import "leaflet/dist/leaflet.css";
+import markerIcon from "leaflet/dist/images/marker-icon.png";
+import markerIconRetina from "leaflet/dist/images/marker-icon-2x.png";
+import markerShadow from "leaflet/dist/images/marker-shadow.png";
+
 export const Recommend = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [idDetail, setIdDetail] = useState(0);
   const [places, setPlaces] = useState();
   const { destination } = useDestinationContext();
+  const mapRef = useRef(null);
 
   const generateGoogleMapsLink = (latitude, longitude) => {
     const url = `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
@@ -28,6 +35,27 @@ export const Recommend = () => {
   useEffect(() => {
     setPlaces(destination);
   }, [destination]);
+
+  useEffect(() => {
+    const initMap = () => {
+      if (mapRef.current) {
+        // Initialize the map
+        const map = L.map(mapRef.current).setView([0, 0], 10); // Set the initial center and zoom level
+        console.log(map);
+        // Add a tile layer (e.g., OpenStreetMap)
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          attribution: "Map data &copy; OpenStreetMap contributors",
+        }).addTo(map);
+
+        // Add markers for each place
+        places?.forEach((place) => {
+          const marker = L.marker([place.lat, place.long]).addTo(map);
+          marker.bindPopup(place.place_name); // Display the place name when marker is clicked
+        });
+      }
+    };
+    initMap();
+  }, [places]);
 
   const openDetailModal = (index) => {
     setIsModalOpen(true);
@@ -55,10 +83,13 @@ export const Recommend = () => {
               </span>
             </p>
           </div>
-          {/* <button>
-            <img src={Filter} alt="filter" />
-          </button> */}
         </div>
+
+        {/* Maps */}
+        {places ? (
+          <div id="mapid" className="w-full h-[400px]" ref={mapRef}></div>
+        ) : null}
+
         <ul className="mt-3 grid grid-cols-2">
           {places?.map((place, index) => {
             return (

@@ -1,43 +1,41 @@
 import { useState } from "react";
-import { AuthContext } from "../context/authContext";
 import { useAuthContext } from "./useAuthContext";
 
 export const useLogin = ({ setError, setLoading }) => {
-    const { dispatch } = useAuthContext();
-    const [isPending, setIsPending] = useState(null);
-    const url = 'http://localhost:3100/api/users/signin';
+  const { dispatch } = useAuthContext();
+  const [isPending, setIsPending] = useState(null);
+  const url = "http://localhost:3100/api/users/signin";
 
-    const login = async (name, password) => {
-        setIsPending(true);
+  const login = async (name, password) => {
+    setIsPending(true);
 
-        console.log(JSON.stringify({ name, password }))
+    console.log(JSON.stringify({ name, password }));
 
-        const response = await fetch(url, {
-            method: 'POST',
-            headers: { 'Content-type': 'application/json' },
-            body: JSON.stringify({ username: name, password })
-        });
+    const response = await fetch(url, {
+      method: "POST",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify({ username: name, password }),
+    });
 
-        const user = await response.json();
+    const user = await response.json();
 
-        if (user.success) {
-            localStorage.setItem('user', JSON.stringify(user.data));
-            dispatch({ type: 'LOGIN', payload: user.data });
-            setLoading(false);
-            return {
-                isError: false,
-                message: 'Login Success!'
-            }
-        }
-        if (!user.success) {
-            setLoading(false);
-            return {
-                isError: true,
-                message: user.error
-            }
-        }
+    if (user.success) {
+      localStorage.setItem("user", JSON.stringify(user.data));
+      dispatch({ type: "LOGIN", payload: user.data });
+      setLoading(false);
+      return {
+        isError: false,
+        message: "Login Success!",
+      };
     }
+    if (!user.success) {
+      setLoading(false);
+      return {
+        isError: true,
+        message: user.error,
+      };
+    }
+  };
 
-    return {login, isPending};
-}
-
+  return { login, isPending };
+};
