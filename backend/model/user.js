@@ -1,5 +1,5 @@
 const { Sequelize } = require('sequelize');
-const db = require('../database/client');
+const db = require('../database/client')
 
 const { DataTypes } = Sequelize;
 
@@ -10,6 +10,9 @@ const users = db.define('users', {
     password: {
         type: DataTypes.STRING
     },
+    username: {
+        type: DataTypes.STRING
+    },
     email: {
         type: DataTypes.STRING
     },
@@ -17,13 +20,14 @@ const users = db.define('users', {
         type: DataTypes.STRING
     },
     role: {
-        type: DataTypes.ENUM('Admin', 'user')
+        type: DataTypes.STRING
     },
     refresh_token: {
         type: DataTypes.TEXT
     }
 }, {
-    freezeTableName: true
+    freezeTableName: true,
+    timestamps: false
 })
 
 module.exports = users;
